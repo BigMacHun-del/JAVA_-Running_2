@@ -4,30 +4,34 @@ public class Garen extends Champion{
     }
 
     @Override
-    public void UseQ(Champion target) {
+    public void UseQ(Champion champion, Champion target) {
         System.out.println(getName() + "의 Q!");
-        target.takeDamage(getAttackDamage() + 100);
+        target.takeDamage(champion,getAttackDamage() + 100);
     }
 
     @Override
-    public void UseW(Champion target) {
+    public void UseW(Champion champion, Champion target) {
         System.out.println(getName() + "의 W!");
     }
 
     @Override
-    public void UseE(Champion target) {
+    public void UseE(Champion champion, Champion target) {
         System.out.println(getName() + "의 E!");
         for (int i = 0; i < 3; i++){
-            target.takeDamage(getAttackDamage() - 50);
+            target.takeDamage(champion, getAttackDamage() - 50);
+            if (target.getIsDead()){
+                break;
+            }
         }
     }
 
     @Override
-    public void UseR(Champion target) {
+    public void UseR(Champion champion, Champion target) {
         System.out.println(getName() + "의 R!");
-        target.takeDamage(getAttackDamage()+(target.getHp()/100*5));   //현재 체력의 5퍼센트 고정피해
+        target.takeDamage(champion,getAttackDamage()+(target.getHp()/100*5));   //현재 체력의 5퍼센트 고정피해
         if (target.getHp() <= 500){
             System.out.println("처헝!");
+            levelUp();
             target.setIsdead(true);
         }
     }

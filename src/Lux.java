@@ -5,23 +5,31 @@ public class Lux extends Champion{
 
     @Override
     public void UseQ(Champion champion, Champion target) {
+        checkAlive();
+        target.checkAlive();
         System.out.println(getName() + "의 Q!");
         target.takeDamage(champion, getAttackDamage());
     }
 
     @Override
     public void UseW(Champion champion, Champion target) {
+        checkAlive();
+        target.checkAlive();
         System.out.println(getName() + "의 W!");
     }
 
     @Override
     public void UseE(Champion champion, Champion target) {
+        checkAlive();
+        target.checkAlive();
         System.out.println(getName() + "의 E!");
         target.takeDamage(champion, getAttackDamage());
     }
 
     @Override
     public void UseR(Champion champion, Champion target) {
+        checkAlive();
+        target.checkAlive();
         System.out.println(getName() + "의 R!");
         target.takeDamage(champion, getAttackDamage()+500);
     }

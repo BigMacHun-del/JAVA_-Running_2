@@ -18,11 +18,7 @@ public abstract class Champion {
     public int getAttackDamage(){return this.attackDamage;}
     public int getHp(){return this.hp;}
     public boolean getIsDead(){return this.isdead;}
-    public void checkIsDead(){
-        if (isdead){
-            System.out.println(this.name + "은 이미 죽었습니다.");
-        }
-    }
+
     public void setIsdead(boolean isdead){
         System.out.println(this.name + "이(가) 죽었습니다!");
         this.isdead = isdead;
@@ -38,7 +34,7 @@ public abstract class Champion {
     //방어력 계산 실제 받는 데미지 메서드
     public void takeDamage(Champion champion, int damage){
         if (isdead){
-            checkIsDead();
+            checkAlive();
             return;
         }
         int actDamage = damage - this.defense;
@@ -71,5 +67,11 @@ public abstract class Champion {
     public abstract void UseW(Champion champion, Champion target);
     public abstract void UseE(Champion champion, Champion target);
     public abstract void UseR(Champion champion, Champion target);
+
+    protected void checkAlive(){  //챔피언 사망 확인
+        if (isdead){
+            throw new DeadChampionActionException(name + "은(는) 이미 사망했습니다.");
+        }
+    }
 
 }

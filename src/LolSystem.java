@@ -4,15 +4,12 @@ import java.util.Scanner;
 
 public class LolSystem {
     public void start(){
-        Garen garen1 = new Garen("가렌1", 10, 1000,200,200);
-        Leesin leesin1 = new Leesin("리신1", 10, 800, 250, 150);
-        Lux lux1 = new Lux("럭스1", 10, 600, 400, 100);
-        Garen garen2 = new Garen("가렌2", 10, 1000,200,200);
-        Leesin leesin2 = new Leesin("리신2", 10, 800, 250, 150);
-        Lux lux2 = new Lux("럭스2", 10, 600, 400, 100);
-
-        List<Garen> garens = new ArrayList<>();
-        Team<Garen> team = new Team<>();
+        Garen garen1 = new Garen("가렌1", 10, GameConstants.BASIC_HP,GameConstants.BASIC_ATTACK_DAMAGE,GameConstants.BASIC_DEFENSE);
+        Leesin leesin1 = new Leesin("리신1", 10, GameConstants.BASIC_HP,GameConstants.BASIC_ATTACK_DAMAGE,GameConstants.BASIC_DEFENSE);
+        Lux lux1 = new Lux("럭스1", 10, GameConstants.BASIC_HP,GameConstants.BASIC_ATTACK_DAMAGE,GameConstants.BASIC_DEFENSE);
+        Garen garen2 = new Garen("가렌2", 10, GameConstants.BASIC_HP,GameConstants.BASIC_ATTACK_DAMAGE,GameConstants.BASIC_DEFENSE);
+        Leesin leesin2 = new Leesin("리신2", 10, GameConstants.BASIC_HP,GameConstants.BASIC_ATTACK_DAMAGE,GameConstants.BASIC_DEFENSE);
+        Lux lux2 = new Lux("럭스2", 10, GameConstants.BASIC_HP,GameConstants.BASIC_ATTACK_DAMAGE,GameConstants.BASIC_DEFENSE);
 
         //List
         List<Champion> list = new ArrayList<>();   //객체의 정보를 담겠다
@@ -45,15 +42,18 @@ public class LolSystem {
         red.addMember(pool.get("리신2"));
         red.addMember(pool.get("럭스2"));
 
-        System.out.println("블루팀 전체 체력: " + blue.getTotalHp());
-        System.out.println("레드팀 전체 체력: " + red.getTotalHp());
+        System.out.println("생성된 챔피언의 수: " + Champion.createdCount);
 
         // 팀 구성원 출력
-        System.out.println("===" + "레드 팀 구성원 ===");
-        Team.printTeamMembers(red.getMembersName());
-
         System.out.println("===" + "블루 팀 구성원 ===");
         Team.printTeamMembers(blue.getMembersName());
+        System.out.println("블루팀 전체 체력: " + blue.getTotalHp());
+
+        System.out.println("===" + "레드 팀 구성원 ===");
+        Team.printTeamMembers(red.getMembersName());
+        System.out.println("레드팀 전체 체력: " + red.getTotalHp());
+
+        System.out.println("========================");
 
         Scanner sc = new Scanner(System.in);
         System.out.print("챔피언 명 검색: ");

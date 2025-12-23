@@ -1,6 +1,6 @@
 public class Leesin extends Champion {
     public Leesin(String name, int level, int hp, int attackDamage, int defense) {
-        super(name, level, hp, attackDamage, defense);
+        super(name, level, hp+200, attackDamage+100, defense);
     }
 
     @Override

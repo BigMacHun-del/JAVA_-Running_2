@@ -45,6 +45,7 @@ public class Team<T extends Champion> {    //챔피언을 상속 받는 요소�
                 .forEach(System.out::println);   //뽑아낸 데이터 각각 출력
     }
 
+
     public List<T> getMembersName() {    //팀원들의 이름 출력
         return members;
     }

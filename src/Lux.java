@@ -1,6 +1,6 @@
 public class Lux extends Champion{
     public Lux(String name, int level, int hp, int attackDamage, int defense) {
-        super(name, level, hp, attackDamage, defense);
+        super(name, level, hp, attackDamage+200, defense);
     }
 
     public boolean boomToken = false;  //럭스 패시브(상대가 스킬을 맞았을 경우 다른 공격을 수행 시 토큰 폭발데미지)
@@ -9,8 +9,9 @@ public class Lux extends Champion{
             System.out.println("럭스 패시브 발동!!");
             target.takeDamage(champion, champion.getAttackDamage() + 100);
             boomToken = false;
+        } else{
+            target.takeDamage(champion, champion.getAttackDamage());
         }
-        target.takeDamage(champion, champion.getAttackDamage());
     }
 
     @Override

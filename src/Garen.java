@@ -1,6 +1,6 @@
 public class Garen extends Champion{
     public Garen(String name, int level, int hp, int attackDamage, int defense) {
-        super(name, level, hp, attackDamage, defense);
+        super(name, level, hp+400, attackDamage, defense);
     }
 
     @Override

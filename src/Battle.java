@@ -13,10 +13,15 @@ public class Battle {
 
         try {
             c1.UseQ(c1,c2);
+            System.out.println("========================");
             c2.UseQ(c2,c1);
+            System.out.println("========================");
             c1.basicAttack(c1, c2);
+            System.out.println("========================");
             c2.basicAttack(c2, c1);
+            System.out.println("========================");
             c1.UseR(c1,c2);
+            System.out.println("========================");
             c2.UseR(c2,c1);
         }catch (DeadChampionActionException e){
             System.out.println(e.getMessage());

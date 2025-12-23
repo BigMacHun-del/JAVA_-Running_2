@@ -12,11 +12,10 @@ public class Battle {
         System.out.println("========================");
 
         try {
-            c1.basicAttack(c1, c2);
-            c2.basicAttack(c2, c1);
-
             c1.UseQ(c1,c2);
             c2.UseQ(c2,c1);
+            c1.basicAttack(c1, c2);
+            c2.basicAttack(c2, c1);
             c1.UseR(c1,c2);
             c2.UseR(c2,c1);
         }catch (DeadChampionActionException e){

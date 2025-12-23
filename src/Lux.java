@@ -3,12 +3,29 @@ public class Lux extends Champion{
         super(name, level, hp, attackDamage, defense);
     }
 
+    public boolean boomToken = false;  //럭스 패시브(상대가 스킬을 맞았을 경우 다른 공격을 수행 시 토큰 폭발데미지)
+    public void boom(Champion champion, Champion target){
+        if(boomToken == true){
+            System.out.println("럭스 패시브 발동!!");
+            target.takeDamage(champion, champion.getAttackDamage() + 100);
+            boomToken = false;
+        }
+        target.takeDamage(champion, champion.getAttackDamage());
+    }
+
+    @Override
+    public void basicAttack(Champion champion, Champion target){
+        System.out.println(champion.getName() + "의 기본 공격!");
+        boom(champion, target);
+    }
+
     @Override
     public void UseQ(Champion champion, Champion target) {
         checkAlive();
         target.checkAlive();
         System.out.println(getName() + "의 Q!");
         target.takeDamage(champion, getAttackDamage());
+        boomToken = true;
     }
 
     @Override
@@ -24,6 +41,7 @@ public class Lux extends Champion{
         target.checkAlive();
         System.out.println(getName() + "의 E!");
         target.takeDamage(champion, getAttackDamage());
+        boomToken = true;
     }
 
     @Override
@@ -32,5 +50,6 @@ public class Lux extends Champion{
         target.checkAlive();
         System.out.println(getName() + "의 R!");
         target.takeDamage(champion, getAttackDamage()+500);
+        boomToken = true;
     }
 }
